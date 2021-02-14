@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Para Iniciantes</title>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    
+    
+       
+    
+    <script type="text/babel">  
+ 
+
+    const Botao = ({nomeBotao,clicando,fundo})=>{
+        function clicar(){
+            console.log('Mostra o que vc faz')
+        }
+        return(
+            <button style={{background:fundo||"red" , padding:'5px 10px', 
+            borderRadius:"10px", color:"white", border:"none", margin:"5px"}}
+             onClick={clicando}>{nomeBotao||"Clique"}</button>
+        )
+    }
+
+       
+    const Numero = ()=>{
+        const numeroAleatorio = Math.floor(Math.random() * (20 - 9)) + 0;
+        return(
+            <h1>Numero Aleatorio {numeroAleatorio}</h1>
+        )
+    }
+    const Formulario = ({title, type, id, ...props})=>{
+        const testeStyle={
+             color:"red",
+             display:"block"
+         } 
+        return(
+            <>
+            <label style={testeStyle} >{title}</label>
+            <input type={type} id={id}  {...props}/>
+            </>
+        )
+    }
+
+
+  
+     const App = ()=> {      
+                 
+           
+            return (
+                <>                      
+              <Formulario title={"Nome"} type={"text"} placeholder={"nome"}/>
+              <Formulario title={"Nacionalidade"} type={"text"} placeholder={"nomNacionalidadee"}/>
+              <Formulario title={"Idade"} type={"number"} placeholder={"Idade"}/>
+              <Botao fundo={"green"} nomeBotao={"Clique"} />
+              </>
+                )
+        }
+
+       ReactDOM.render(<App/>, document.getElementById('app'))
+    </script>
+</body>
+</html>
+                          
